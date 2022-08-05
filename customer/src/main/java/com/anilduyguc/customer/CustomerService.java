@@ -17,7 +17,7 @@ public class CustomerService {
                 .build();
         customerRepository.saveAndFlush(customer);
         FraudCheckResponse fraudCheckResponse = restTemplate.getForObject(
-                "http://localhost:8081/api/v1/fraud-check/x{customerId}",
+                "http://FRAUD/api/v1/fraud-check/{customerId}", //{FRAUD} application name of the eureka server
                 FraudCheckResponse.class,
                 customer.getId()
         );
